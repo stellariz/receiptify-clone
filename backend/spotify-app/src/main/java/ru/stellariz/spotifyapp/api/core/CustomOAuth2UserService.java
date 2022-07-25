@@ -1,12 +1,14 @@
 package ru.stellariz.spotifyapp.api.core;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;
 import org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest;
 import org.springframework.security.oauth2.client.userinfo.OAuth2UserService;
 import org.springframework.security.oauth2.core.OAuth2AuthenticationException;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Service;
+import ru.stellariz.spotifyapp.DTO.AppUser;
 
 @Service
 @RequiredArgsConstructor
@@ -18,10 +20,7 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
         final DefaultOAuth2UserService userService = new DefaultOAuth2UserService();
         final OAuth2User oAuth2User = userService.loadUser(userRequest);
 
-        final String spotifyId = oAuth2User.getAttributes().get("id").toString();
-        final String displayName = oAuth2User.getAttributes().get("display_name").toString();
-
-        userRegisterService.addUser(spotifyId, displayName);
+        userRegisterService.addUser(oAuth2User);
 
         return oAuth2User;
     }

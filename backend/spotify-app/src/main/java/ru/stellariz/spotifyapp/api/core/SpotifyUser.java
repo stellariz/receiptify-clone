@@ -18,4 +18,6 @@ public class SpotifyUser {
     @Id
     private String spotifyUserId;
     private String displayName;
+    private String profileUrl;
+    private String profilePictureUrl;
 }
