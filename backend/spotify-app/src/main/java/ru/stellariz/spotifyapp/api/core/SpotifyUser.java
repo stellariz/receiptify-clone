@@ -16,6 +16,6 @@ import javax.persistence.Id;
 @NoArgsConstructor
 public class SpotifyUser {
     @Id
-    private Long spotifyUserId;
+    private String spotifyUserId;
     private String displayName;
 }

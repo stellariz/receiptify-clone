@@ -10,7 +10,7 @@ import java.util.Optional;
 public class UserRegisterService {
     private final UserRepository userRepository;
 
-    public SpotifyUser addUser(Long spotifyId, String displayName) {
+    public SpotifyUser addUser(String spotifyId, String displayName) {
         Optional<SpotifyUser> spotifyUser = userRepository.findById(spotifyId);
         return spotifyUser.orElse(userRepository.save(new SpotifyUser(spotifyId, displayName)));
     }

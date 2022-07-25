@@ -11,8 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 public class UserController {
     @GetMapping("/user")
-    public ResponseEntity<String> getInfo(@AuthenticationPrincipal OAuth2User principal){
-        var tmp = principal.getAttributes();
-        return ResponseEntity.ok("Hello, " + principal.getAttribute("display_name"));
+    public ResponseEntity<OAuth2User> getInfo(@AuthenticationPrincipal OAuth2User principal){
+        return ResponseEntity.ok(principal);
     }
 }

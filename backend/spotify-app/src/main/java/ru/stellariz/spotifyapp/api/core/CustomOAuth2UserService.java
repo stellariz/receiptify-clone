@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequest, OAuth2User> {
+public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequest, OAuth2User>{
     private final UserRegisterService userRegisterService;
 
     @Override
@@ -18,11 +18,11 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
         final DefaultOAuth2UserService userService = new DefaultOAuth2UserService();
         final OAuth2User oAuth2User = userService.loadUser(userRequest);
 
-        final Long spotifyId = Long.valueOf(oAuth2User.getAttributes().get("id").toString());
-        final String displayName = oAuth2User.getAttributes().get("name").toString();
+        final String spotifyId = oAuth2User.getAttributes().get("id").toString();
+        final String displayName = oAuth2User.getAttributes().get("display_name").toString();
 
         userRegisterService.addUser(spotifyId, displayName);
 
-        return userService.loadUser(userRequest);
+        return oAuth2User;
     }
 }
