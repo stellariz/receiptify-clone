@@ -17,4 +17,5 @@ public class Track {
     private Album album;
     private List<Artist> artists;
     private String popularity;
+    private String duration_ms;
 }
