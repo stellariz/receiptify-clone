@@ -1,11 +1,15 @@
 package ru.stellariz.spotifyapp.api.spotifyService;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.util.UriComponentsBuilder;
+import ru.stellariz.spotifyapp.api.DTO.TrackList;
 
 import java.net.URI;
 
-
+@Slf4j
 public class SpotifyService extends ApiBinding {
     private static final String BASE_URL = "https://api.spotify.com/v1";
 
@@ -33,6 +37,13 @@ public class SpotifyService extends ApiBinding {
                     .queryParam("time_range", time)
                     .build().toUri();
         }
-        return ResponseEntity.ok(restTemplate.getForEntity(uri, Object.class));
+        String jsonResponse = restTemplate.getForObject(uri, String.class);
+        TrackList trackList = null;
+        try {
+            trackList = new ObjectMapper().readValue(jsonResponse, TrackList.class);
+        } catch (JsonProcessingException e){
+            log.error(e.getMessage());
+        }
+        return ResponseEntity.ok(trackList);
     }
 }

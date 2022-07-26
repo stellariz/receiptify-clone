@@ -26,7 +26,6 @@ public class ServicesConfig {
                 accessToken = client.getAccessToken().getTokenValue();
             }
         }
-        System.out.println(accessToken);
         return new SpotifyService(accessToken);
     }
 }
