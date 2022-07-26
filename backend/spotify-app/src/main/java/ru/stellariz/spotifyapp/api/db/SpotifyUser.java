@@ -1,4 +1,4 @@
-package ru.stellariz.spotifyapp.api.core;
+package ru.stellariz.spotifyapp.api.db;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

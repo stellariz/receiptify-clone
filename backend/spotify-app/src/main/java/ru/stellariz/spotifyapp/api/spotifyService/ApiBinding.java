@@ -1,4 +1,4 @@
-package ru.stellariz.spotifyapp.api;
+package ru.stellariz.spotifyapp.api.spotifyService;
 
 import org.springframework.http.client.ClientHttpRequestInterceptor;
 import org.springframework.web.client.RestTemplate;

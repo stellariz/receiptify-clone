@@ -7,9 +7,11 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import ru.stellariz.spotifyapp.api.core.SpotifyUser;
-import ru.stellariz.spotifyapp.api.core.UserRegisterService;
+import ru.stellariz.spotifyapp.api.db.SpotifyUser;
+import ru.stellariz.spotifyapp.api.db.UserRegisterService;
+import ru.stellariz.spotifyapp.api.spotifyService.SpotifyService;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -27,7 +29,7 @@ public class UserController {
     }
 
     @GetMapping("/get_tracks")
-    public ResponseEntity<?> getTracks() {
-        return spotifyService.getTop10TracksForAllTime();
+    public ResponseEntity<?> getTracks(@RequestParam String time, @RequestParam String type) {
+        return spotifyService.getTracks(time, type);
     }
 }

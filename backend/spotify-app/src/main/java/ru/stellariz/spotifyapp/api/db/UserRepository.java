@@ -1,4 +1,4 @@
-package ru.stellariz.spotifyapp.api.core;
+package ru.stellariz.spotifyapp.api.db;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

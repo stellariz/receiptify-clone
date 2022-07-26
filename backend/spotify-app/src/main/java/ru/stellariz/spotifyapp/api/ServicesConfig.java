@@ -8,9 +8,10 @@ import org.springframework.security.oauth2.client.OAuth2AuthorizedClient;
 import org.springframework.security.oauth2.client.OAuth2AuthorizedClientService;
 import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
 import org.springframework.web.context.annotation.RequestScope;
+import ru.stellariz.spotifyapp.api.spotifyService.SpotifyService;
 
 @Configuration
-public class SpotifyConfig {
+public class ServicesConfig {
 
     @Bean
     @RequestScope

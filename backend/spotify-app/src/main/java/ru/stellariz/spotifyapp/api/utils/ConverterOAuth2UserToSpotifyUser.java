@@ -1,6 +1,7 @@
-package ru.stellariz.spotifyapp.api.core;
+package ru.stellariz.spotifyapp.api.utils;
 
 import org.springframework.security.oauth2.core.user.OAuth2User;
+import ru.stellariz.spotifyapp.api.db.SpotifyUser;
 
 import java.util.ArrayList;
 import java.util.HashMap;

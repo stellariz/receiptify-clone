@@ -1,8 +1,9 @@
-package ru.stellariz.spotifyapp.api.core;
+package ru.stellariz.spotifyapp.api.db;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Service;
+import ru.stellariz.spotifyapp.api.utils.ConverterOAuth2UserToSpotifyUser;
 
 import java.util.Optional;
 
