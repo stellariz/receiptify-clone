@@ -1,0 +1,32 @@
+.grad_animation {
+    background: linear-gradient(-45deg, #ee7752, #a02b55, #175e78, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 8s ease infinite;
+    height: 100vh;
+}
+
+.text_animation {
+    animation: text-display-home 2s;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
+}
+
+@keyframes text-display-home {
+    0% {
+        opacity: 0.2;
+    }
+    100% {
+        opacity: 1;
+    }
+}
