@@ -1,11 +1,13 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import HomePage from "./home_page/homePage";
-
+import TracksPage from "./tracks_page/TracksPage";
+import Navbar from "./Navbar";
 
 function App() {
-  return (
-      <HomePage/>
-  );
+    return (
+        <div>
+            <Navbar/>
+            <TracksPage/>
+        </div>
+    );
 }
 
 export default App;
