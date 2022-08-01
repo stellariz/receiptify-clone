@@ -3,14 +3,15 @@ package ru.stellariz.spotifyapp.api;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.oauth2.core.user.OAuth2User;
+import org.springframework.security.oauth2.client.OAuth2AuthorizedClient;
+import org.springframework.security.oauth2.client.annotation.RegisteredOAuth2AuthorizedClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import ru.stellariz.spotifyapp.api.db.SpotifyUser;
-import ru.stellariz.spotifyapp.api.db.UserRegisterService;
+import ru.stellariz.spotifyapp.api.db.UserRepository;
 import ru.stellariz.spotifyapp.api.spotifyService.SpotifyService;
 
 @Slf4j
@@ -20,12 +21,13 @@ import ru.stellariz.spotifyapp.api.spotifyService.SpotifyService;
 public class UserController {
     private final SpotifyService spotifyService;
 
-    private final UserRegisterService userRegisterService;
+    private final UserRepository userRepository;
 
     @GetMapping("/user")
-    public ResponseEntity<SpotifyUser> getInfo(@AuthenticationPrincipal OAuth2User principal) {
-        final String spotifyId = principal.getAttribute("id").toString();
-        return ResponseEntity.ok(userRegisterService.findUserBySpotifyId(spotifyId).orElse(null));
+    public ResponseEntity<?> getInfo(@AuthenticationPrincipal Authentication authentication) {
+        // principal hasn't all credentials
+        log.info(authentication.getName());
+        return ResponseEntity.ok("hi");
     }
 
     @GetMapping("/get_tracks")

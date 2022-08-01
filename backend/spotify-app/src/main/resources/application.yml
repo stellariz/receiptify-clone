@@ -10,3 +10,34 @@ spring:
     database-platform: org.hibernate.dialect.PostgreSQL10Dialect
     hibernate:
       ddl-auto: create-drop
+  security:
+    oauth2:
+      client:
+        registration:
+          spotify:
+            client-name: "spotify"
+            client-id: 15eae42adf134f9786d552153954d394
+            client-secret: 0a82e10321ab4f49b53aee1545a0ed6e
+            redirect-uri: "{baseUrl}/oauth2/code/{registrationId}"
+            client-authentication-method: basic
+            authorization-grant-type: authorization_code
+            scope:
+              - user-top-read
+              - user-read-private
+        provider:
+          spotify:
+            user-name-attribute: display_name
+            authorization-uri: "https://accounts.spotify.com/authorize"
+            token-uri: "https://accounts.spotify.com/api/token"
+            user-info-uri: "https://api.spotify.com/v1/me"
+
+
+app:
+  auth:
+    tokenExpirationMsec: 864000000
+    token-secret: "635166546A576E5A7234753777217A25432A462D4A614E645267556B58703273357638792F413F4428472B4B6250655368566D597133743677397A2443264529"
+  cors:
+    allowedOrigins: http://localhost:3000,http://localhost:8080
+  oauth2:
+    authorizedRedirectUris:
+      - http://localhost:3000/oauth2/redirect

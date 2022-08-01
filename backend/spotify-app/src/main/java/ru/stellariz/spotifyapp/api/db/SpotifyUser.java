@@ -7,6 +7,8 @@ import lombok.Setter;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -17,7 +19,8 @@ import javax.persistence.Id;
 public class SpotifyUser {
     @Id
     private String spotifyUserId;
+    private String email;
     private String displayName;
-    private String profileUrl;
+    private String profileUri;
     private String profilePictureUrl;
 }

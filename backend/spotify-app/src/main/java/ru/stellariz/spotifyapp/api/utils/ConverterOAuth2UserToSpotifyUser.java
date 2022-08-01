@@ -15,11 +15,13 @@ public class ConverterOAuth2UserToSpotifyUser {
 
         final String display_name = attrs.get("display_name").toString();
 
+        final String email = attrs.get("email").toString();
+
         final String profileUrl = attrs.get("href").toString();
 
         var images = ((ArrayList< HashMap<String, String>>)attrs.get("images"));
         final String profilePictureUrl = images.size() == 0 ? null : images.get(0).get("url");
 
-        return new SpotifyUser(spotifyId, display_name, profileUrl, profilePictureUrl);
+        return new SpotifyUser(spotifyId, email, display_name, profileUrl, profilePictureUrl);
     }
 }
