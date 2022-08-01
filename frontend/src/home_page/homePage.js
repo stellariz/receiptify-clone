@@ -1,4 +1,7 @@
 import './home_page.css'
+import {SPOTIFY_AUTH_URL} from "../constants";
+import {useRef} from "react";
+import axios from "axios";
 
 const HomePage = () => {
     return (
@@ -15,8 +18,7 @@ const HomePage = () => {
                             <h1 className="display-2 fw-bold lh-1 mb-3">Topify</h1>
                             <p className="lead">Твои самые прослушиваемые треки (и артисты)</p>
                             <div className="d-grid gap-2 d-md-flex justify-content-md-start">
-                                <button type="button" className="btn btn-success btn-lg px-4 me-md-2">Login with Spotify
-                                </button>
+                                <a href={SPOTIFY_AUTH_URL} type="button" className="btn btn-success btn-lg px-4 me-md-2">Login with Spotify</a>
                                 <button type="button" className="btn btn-secondary btn-lg px-4">Info</button>
                             </div>
                         </div>
