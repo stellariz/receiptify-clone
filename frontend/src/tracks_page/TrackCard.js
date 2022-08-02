@@ -1,18 +1,25 @@
 import React from 'react';
+import PlayButton from "./components/buttons/PlayButton";
 
 
-const TrackCard = ({track}) => {
+const TrackCard = ({number, track}) => {
+
+    const getArtists = (artists) => {
+        if (artists.length === 1){
+            return artists[0].name
+        }
+        return  artists.map(artist=>artist.name).join(", ")
+    }
+
     return (
         <div className="col mt-5">
-            <div className="card" style={{width: '13rem'}}>
-                <img className="card-img-top" src="https://i.scdn.co/image/ab67616d0000b27367d38453b6f85a4b470b9b4b"
+            <div className="card " style={{width: '13rem'}}>
+                <img className="card-img-top" src={track.album.images[0].url}
                      alt="Card image cap"/>
                 <div className="card-body">
-                    <h5 className="card-text">track.name</h5>
-                    <p className="card-text">track.artists.name</p>
-                    <a href="#" className="btn btn-success">
-                        <i className="bi bi-play-circle-fill"></i> Play
-                    </a>
+                    <h5 className="card-text">{number + ". " + track.name}</h5>
+                    <p className="card-text">{getArtists(track.artists)}</p>
+                    <PlayButton preview_url={track.preview_url}/>
                 </div>
             </div>
         </div>

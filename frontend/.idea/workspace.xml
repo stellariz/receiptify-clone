@@ -5,26 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7df7ad22-c8da-4c1d-8612-0a6959f89e57" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../backend/spotify-app/src/main/java/ru/stellariz/spotifyapp/security/oauth2/user/CustomOAuth2UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../backend/spotify-app/src/main/java/ru/stellariz/spotifyapp/security/oauth2/user/OAuth2UserInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/spotify-app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/spotify-app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/spotify-app/src/main/java/ru/stellariz/spotifyapp/SpotifyAppApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/spotify-app/src/main/java/ru/stellariz/spotifyapp/SpotifyAppApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/spotify-app/src/main/java/ru/stellariz/spotifyapp/api/ServicesConfig.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../backend/spotify-app/src/main/java/ru/stellariz/spotifyapp/api/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/spotify-app/src/main/java/ru/stellariz/spotifyapp/api/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/spotify-app/src/main/java/ru/stellariz/spotifyapp/api/db/SpotifyUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/spotify-app/src/main/java/ru/stellariz/spotifyapp/api/db/SpotifyUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/spotify-app/src/main/java/ru/stellariz/spotifyapp/api/db/UserRegisterService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/spotify-app/src/main/java/ru/stellariz/spotifyapp/api/db/UserRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/spotify-app/src/main/java/ru/stellariz/spotifyapp/api/security/CustomOAuth2UserService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/spotify-app/src/main/java/ru/stellariz/spotifyapp/api/security/OAuth2LoginConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/spotify-app/src/main/java/ru/stellariz/spotifyapp/configuration/OAuth2LoginConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/spotify-app/src/main/java/ru/stellariz/spotifyapp/api/utils/ConverterOAuth2UserToSpotifyUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/spotify-app/src/main/java/ru/stellariz/spotifyapp/api/utils/ConverterOAuth2UserToSpotifyUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/spotify-app/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/spotify-app/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/spotify-app/src/main/java/ru/stellariz/spotifyapp/api/spotifyService/ApiBinding.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/spotify-app/src/main/java/ru/stellariz/spotifyapp/api/spotifyService/SpotifyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/spotify-app/src/main/java/ru/stellariz/spotifyapp/api/spotifyService/SpotifyService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/spotify-app/src/main/java/ru/stellariz/spotifyapp/configuration/OAuth2LoginConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/spotify-app/src/main/java/ru/stellariz/spotifyapp/configuration/OAuth2LoginConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/spotify-app/src/main/java/ru/stellariz/spotifyapp/security/TokenProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/spotify-app/src/main/java/ru/stellariz/spotifyapp/security/TokenProvider.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/home_page/homePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/home_page/homePage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Profile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TrackService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/TrackService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/oauth2/OAuth2RedirectHandler.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/oauth2/OAuth2RedirectHandler.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/tracks_page/TrackCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/tracks_page/TrackCard.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/tracks_page/TracksPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/tracks_page/TracksPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tracks_page/switchers/TermSwitcher.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/tracks_page/switchers/TermSwitcher.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tracks_page/switchers/TermSwitcher.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/tracks_page/components/switchers/TermSwitcher.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tracks_page/switchers/TypeSwitcher.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/tracks_page/components/switchers/TypeSwitcher.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/APIUtils.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/APIUtils.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,6 +71,7 @@
       <recent name="C:\Users\roxxa\clone_receiptify\frontend\public" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\roxxa\clone_receiptify\frontend\src\tracks_page\components" />
       <recent name="C:\Users\roxxa\clone_receiptify\frontend\src" />
       <recent name="C:\Users\roxxa\clone_receiptify\frontend\src\home_page" />
     </key>
@@ -112,7 +109,8 @@
       <workItem from="1659101749037" duration="939000" />
       <workItem from="1659157340204" duration="8036000" />
       <workItem from="1659246065798" duration="2979000" />
-      <workItem from="1659370312756" duration="1881000" />
+      <workItem from="1659370312756" duration="2154000" />
+      <workItem from="1659420281603" duration="14434000" />
     </task>
     <servers />
   </component>
@@ -135,7 +133,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/App.js</url>
-          <line>41</line>
+          <line>38</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

@@ -1,22 +1,21 @@
-import React, {useEffect, useState} from 'react';
-import TermSwitcher from "./switchers/TermSwitcher";
-import TypeSwitcher from "./switchers/TypeSwitcher";
+import React, {useState, useEffect} from 'react';
+import TermSwitcher from "./components/switchers/TermSwitcher";
+import TypeSwitcher from "./components/switchers/TypeSwitcher";
 import TrackCard from "./TrackCard";
 import TrackService from "../TrackService";
 
 const TracksPage = () => {
-
-    const [tracks, setTracks] = useState([])
-
+    const[tracks, setTracks] = useState([])
     useEffect(() => {
-        TrackService.getTracks("tracks", "short_term").then(res => {
-            console.log(res)
-            setTracks(res.body.items)
-        }).catch(err => {
+        TrackService.getTracks("tracks", "short_term")
+            .then(res => {
+                console.log(res.data.items)
+                setTracks(res.data.items)
+            })
+            .catch(err => {
             console.log(err)
         })
     }, [])
-
     return (
         <div>
             <div className="container col-3 py-5">
@@ -29,8 +28,8 @@ const TracksPage = () => {
             </div>
             <div className="container">
                 <div className="row">
-                    {tracks.map((track) => (
-                        < TrackCard track={track}/>
+                    {tracks.map((track, i) => (
+                        < TrackCard track={track} number={i+1} key={i}/>
                     ))}
                 </div>
             </div>

@@ -17,10 +17,10 @@ const OAuth2RedirectHandler = (props) => {
         <div>
             {token.length === 0 ?
                 <Navigate to={{
-                    pathname: "/me",
+                    pathname: "/",
                 }}/> :
                 <Navigate to={{
-                    pathname: "/",
+                    pathname: "/tracks",
                     state: {
                         error: error
                     }
