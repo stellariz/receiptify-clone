@@ -2,15 +2,24 @@ package ru.stellariz.spotifyapp.api.spotifyService;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.oauth2.client.OAuth2AuthorizedClientService;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 import ru.stellariz.spotifyapp.api.DTO.TrackList;
 
 import java.net.URI;
 
 @Slf4j
-public class SpotifyService extends ApiBinding {
+@Service
+@RequiredArgsConstructor
+public class SpotifyService {
+
+    private final OAuth2AuthorizedClientService oAuth2AuthorizedClientService;
+
     private static final String BASE_URL = "https://api.spotify.com/v1";
 
     private static final String TRACKS = "/me/top/tracks";
@@ -19,12 +28,7 @@ public class SpotifyService extends ApiBinding {
 
     private static final int TRACKS_NUMBER = 10;
 
-
-    public SpotifyService(String accessToken) {
-        super(accessToken);
-    }
-
-    public ResponseEntity<?> getTracks(String time, String type) {
+    public ResponseEntity<?> getTracks(String registrationId, String name, String time, String type) {
         URI uri;
         if (type.equals("tracks")) {
             uri = UriComponentsBuilder.fromUriString(BASE_URL + TRACKS)
@@ -37,6 +41,16 @@ public class SpotifyService extends ApiBinding {
                     .queryParam("time_range", time)
                     .build().toUri();
         }
+
+        String accessToken = oAuth2AuthorizedClientService.loadAuthorizedClient(registrationId, name).getAccessToken().getTokenValue();
+
+        RestTemplate restTemplate = new RestTemplate();
+
+        restTemplate.getInterceptors().add((request, body, execution)-> {
+            request.getHeaders().add("Authorization", "Bearer " + accessToken);
+            return execution.execute(request, body);
+        });
+
         String jsonResponse = restTemplate.getForObject(uri, String.class);
         TrackList trackList = null;
         try {

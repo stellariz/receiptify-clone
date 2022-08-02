@@ -23,11 +23,6 @@ public class OAuth2LoginConfig {
 
     private final OAuth2AuthenticationFailureHandler oAuth2AuthenticationFailureHandler;
 
-//    @Bean
-//    OAuth2AccessTokenResponseClient<OAuth2AuthorizationCodeGrantRequest> oAuth2AccessTokenResponseClient(){
-//        return new DefaultAuthorizationCodeTokenResponseClient();
-//    }
-
 
     @Bean
     public TokenAuthenticationFilter tokenAuthenticationFilter() {

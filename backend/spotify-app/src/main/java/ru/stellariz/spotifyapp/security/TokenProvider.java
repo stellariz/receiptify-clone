@@ -28,7 +28,7 @@ public class TokenProvider {
      }
 
      public String getUserIdFromToken(String token){
-        return JWT.decode(token).getHeaderClaim("subject").asString();
+        return JWT.decode(token).getSubject();
      }
 
      public boolean validateToken(String token) {
