@@ -10,15 +10,20 @@ function getCurrentUser() {
     })
 }
 
-function getTracksCurrentUser(term, type){
+function getTracksCurrentUser(filter){
     if(!localStorage.getItem(ACCESS_TOKEN)) {
         return Promise.reject("No access token set.");
     }
     return axios.get(API_BASE_URL + "/api/get_tracks", {
+        params: {
+          type: filter.type,
+          time: filter.time
+        },
         headers: {'Authorization' : "Bearer " + localStorage.getItem(ACCESS_TOKEN)}
     })
 }
 
 export default {
     getCurrentUser,
+    getTracksCurrentUser,
 }

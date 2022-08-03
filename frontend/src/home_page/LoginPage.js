@@ -1,9 +1,7 @@
-import './home_page.css'
+import './LoginPage.css'
 import {SPOTIFY_AUTH_URL} from "../constants";
-import {useRef} from "react";
-import axios from "axios";
 
-const HomePage = () => {
+const LoginPage = () => {
     return (
         <div className="grad_animation pt-5">
             <div className="container col-xxl-9 pr-4 pt-5">
@@ -29,4 +27,4 @@ const HomePage = () => {
     );
 };
 
-export default HomePage;
+export default LoginPage;

@@ -1,9 +1,8 @@
 import Navbar from "./Navbar";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import {useEffect, useState} from "react";
-import APIUtils from "./utils/APIUtils";
+import {useState} from "react";
 import OAuth2RedirectHandler from "./oauth2/OAuth2RedirectHandler";
-import HomePage from "./home_page/homePage";
+import LoginPage from "./home_page/LoginPage";
 import TracksPage from "./tracks_page/TracksPage";
 
 
@@ -32,7 +31,7 @@ function App() {
                 <Routes>
                     <Route path="/tracks" element={<TracksPage/>}/>
                     <Route path="/oauth2/redirect" element={<OAuth2RedirectHandler/>}/>
-                    <Route exact path="/" element={<HomePage/>}/>
+                    <Route exact path="/" element={<LoginPage/>}/>
                 </Routes>
             </BrowserRouter>
         </div>

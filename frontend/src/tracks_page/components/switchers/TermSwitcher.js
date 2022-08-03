@@ -1,16 +1,26 @@
 import React from 'react';
+import'./ButtonOutline.css'
 
-const TermSwitcher = ({clickHandler}) => {
+const TermSwitcher = ({filter, setFilter}) => {
+
+    const handleClick = (event) => {
+
+        console.log(event.target.id)
+        setFilter({
+            ...filter,
+            time: event.target.id
+        })
+    }
     return (
         <div className="btn-group" role="time" aria-label="time">
-            <input type="radio" className="btn-check" name="term" id="short_term" autoComplete="off"/>
-            <label className="btn btn-outline-primary" htmlFor="short_term">Last month</label>
+            <input type="radio" onChange={handleClick} className="btn-check" name="term" autoComplete="off" id="short_term" defaultChecked={filter.time === "short_term"}/>
+            <label  className="btn btn-outline-primary" htmlFor="short_term">Last month</label>
 
-            <input type="radio" className="btn-check" name="term" id="middle_term" autoComplete="off"/>
-            <label className="btn btn-outline-primary" htmlFor="middle_term">Last 6 months</label>
+            <input type="radio" onChange={handleClick} className="btn-check" name="term" autoComplete="off" id="medium_term" defaultChecked={filter.time === "medium_term"}/>
+            <label id="medium_term" className="btn btn-outline-primary" htmlFor="medium_term">Last 6 months</label>
 
-            <input type="radio" className="btn-check" name="term" id="long_term" autoComplete="off"/>
-            <label className="btn btn-outline-primary" htmlFor="long_term">All time</label>
+            <input type="radio" onClick={handleClick} className="btn-check" name="term" autoComplete="off" id="long_term" defaultChecked={filter.time === "long_term"}/>
+            <label id="long_term" className="btn btn-outline-primary" htmlFor="long_term">All time</label>
         </div>
     );
 };
