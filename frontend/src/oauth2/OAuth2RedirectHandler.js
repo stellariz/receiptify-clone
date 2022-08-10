@@ -1,31 +1,31 @@
-import React from 'react';
-import {ACCESS_TOKEN} from '../constants';
-import {Navigate, useSearchParams} from 'react-router-dom'
+import React, {useEffect} from 'react';
+import {useLocation, useNavigate, useSearchParams} from 'react-router-dom'
+import {useAuth} from "../auth/AuthUtils";
 
-const OAuth2RedirectHandler = (props) => {
+const OAuth2RedirectHandler = () => {
+    const navigate = useNavigate()
+    const location = useLocation()
+    const auth = useAuth()
+
+    const from = location.state?.from?.pathname || "/"
+
     const [searchParams] = useSearchParams()
 
-    const token = searchParams.get("token")
-    const error = searchParams.get("error")
-
-    if (token) {
-        console.log(token)
-        localStorage.setItem(ACCESS_TOKEN, token);
-    }
+    useEffect(() => {
+        const token = searchParams.get("token")
+        const error = searchParams.get("error")
+        if (token) {
+            auth.signin(token, () => {
+                navigate("/tracks", {replace: true, state: {from: from}})
+            })
+        } else {
+            console.log(error)
+            navigate("/login", {replace: true, state: {from: from}})
+        }
+    }, [])
 
     return (
-        <div>
-            {token.length === 0 ?
-                <Navigate to={{
-                    pathname: "/",
-                }}/> :
-                <Navigate to={{
-                    pathname: "/tracks",
-                    state: {
-                        error: error
-                    }
-                }}/>}
-        </div>
+        <></>
     );
 };
 

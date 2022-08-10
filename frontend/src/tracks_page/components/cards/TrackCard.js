@@ -1,6 +1,5 @@
 import React from 'react';
-import PlayButton from "./components/buttons/PlayButton";
-
+import PlayButton from "../buttons/PlayButton";
 
 const TrackCard = ({number, track}) => {
 
@@ -13,7 +12,7 @@ const TrackCard = ({number, track}) => {
 
     return (
         <div className="col mt-5">
-            <div className="card " style={{width: '13rem'}}>
+            <div className="card" style={{width: '13rem'}}>
                 <img className="card-img-top" src={track.album.images[0].url}
                      alt="Card image cap"/>
                 <div className="card-body">

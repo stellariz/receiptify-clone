@@ -1,47 +1,39 @@
-import React, {useEffect, useState} from 'react';
-import TermSwitcher from "./components/switchers/TermSwitcher";
-import TypeSwitcher from "./components/switchers/TypeSwitcher";
-import TrackCard from "./TrackCard";
+import React, {useState, useEffect, createContext, useContext} from 'react';
+import TrackCard from "./components/cards/TrackCard";
+import Navbar from "../Navbar";
+import ArtistCard from "./components/cards/ArtistCard";
+import Filters from "./Filters";
 import APIUtils from "../utils/APIUtils";
+import "./components/cards/card.css"
+
+const FilterContext = createContext(null)
+export const useFilter = () => useContext(FilterContext)
 
 const TracksPage = () => {
+    const [artists, setArtists] = useState([])
     const [tracks, setTracks] = useState([])
     const [filter, setFilter] = useState({
         type: "tracks",
         time: "short_term"
     })
 
-    useEffect(() => {
-        APIUtils.getTracksCurrentUser(filter)
-            .then(res => {
-                console.log(res.data.items)
-                setTracks(res.data.items)
-            })
-            .catch(err => {
-                console.log(err)
-            })
-    }, [filter])
-
-    useEffect(() => {
-
-    }, [tracks])
-
 
     return (
         <div>
-            <div className="container col-3 py-5">
-                <div className="row gy-5">
-                    <TermSwitcher filter={filter} setFilter={setFilter}/>
-                </div>
-                <div className="row mt-2">
-                    <TypeSwitcher filter={filter} setFilter={setFilter}/>
-                </div>
-            </div>
+            <Navbar/>
+            <FilterContext.Provider value={{setArtists, setTracks, filter, setFilter}}>
+                <Filters/>
+            </FilterContext.Provider>
             <div className="container">
                 <div className="row">
-                    {tracks.map((track, i) => (
-                        < TrackCard track={track} number={i + 1} key={i}/>
-                    ))}
+                    {filter.type === "tracks" ?
+                        tracks.map((track, i) => (
+                            < TrackCard track={track} number={i + 1} key={i}/>
+                        ))
+                        :
+                        artists.map((artist, i) => (
+                            < ArtistCard artist={artist} number={i + 1} key={i}/>
+                        ))}
                 </div>
             </div>
         </div>
