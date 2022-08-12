@@ -2,7 +2,6 @@ import React from 'react';
 
 
 const ArtistCard = ({number, artist}) => {
-    console.log(artist)
     return (
         <div className="col mt-5">
             <div className="card" style={{width: '13rem'}}>

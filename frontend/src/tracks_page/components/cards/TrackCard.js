@@ -2,7 +2,7 @@ import React from 'react';
 import PlayButton from "../buttons/PlayButton";
 
 const TrackCard = ({number, track}) => {
-
+    console.log(track)
     const getArtists = (artists) => {
         if (artists.length === 1){
             return artists[0].name
