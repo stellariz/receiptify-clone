@@ -1,37 +1,49 @@
-import React, {useState, useEffect, createContext, useContext} from 'react';
+import React, {createContext, useContext, useEffect, useState} from 'react';
 import TrackCard from "./components/cards/TrackCard";
 import Navbar from "../Navbar";
 import ArtistCard from "./components/cards/ArtistCard";
 import Filters from "./Filters";
-import APIUtils from "../utils/APIUtils";
 import "./components/cards/card.css"
+import APIUtils from "../utils/APIUtils";
 
 const FilterContext = createContext(null)
 export const useFilter = () => useContext(FilterContext)
 
 const TracksPage = () => {
-    const [artists, setArtists] = useState([])
-    const [tracks, setTracks] = useState([])
-    const [filter, setFilter] = useState({
+    const [data, setData] = useState([])
+    const [innerFilter, setInnerFilter] = useState({
         type: "tracks",
-        time: "short_term"
+        time: "short_term",
+        data: null
     })
 
+    const [outerFilter] = useState({})
+
+    useEffect(() => {
+        outerFilter.type = innerFilter.type
+        if (data.length === 0) {
+            APIUtils.getTracksCurrentUser(innerFilter).then(res => {
+                setData(res.data.items)
+            }).catch(err => console.log(err));
+        } else {
+            setData(innerFilter.data)
+        }
+    }, [innerFilter])
 
     return (
         <div>
             <Navbar/>
-            <FilterContext.Provider value={{setArtists, setTracks, filter, setFilter}}>
+            <FilterContext.Provider value={{innerFilter, setInnerFilter}}>
                 <Filters/>
             </FilterContext.Provider>
             <div className="container">
                 <div className="row">
-                    {filter.type === "tracks" ?
-                        tracks.map((track, i) => (
+                    {outerFilter.type === "tracks" ?
+                        data.map((track, i) => (
                             < TrackCard track={track} number={i + 1} key={i}/>
                         ))
                         :
-                        artists.map((artist, i) => (
+                        data.map((artist, i) => (
                             < ArtistCard artist={artist} number={i + 1} key={i}/>
                         ))}
                 </div>
