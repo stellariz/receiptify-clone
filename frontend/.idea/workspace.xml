@@ -10,11 +10,11 @@
       <change beforePath="$PROJECT_DIR$/../backend/spotify-app/src/main/java/ru/stellariz/spotifyapp/api/spotifyService/SpotifyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/spotify-app/src/main/java/ru/stellariz/spotifyapp/api/spotifyService/SpotifyService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../backend/spotify-app/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/spotify-app/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/tracks_page/TracksPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/tracks_page/TracksPage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/tracks_page/components/cards/ArtistCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/tracks_page/components/cards/ArtistCard.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/tracks_page/components/cards/TrackCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/tracks_page/components/cards/TrackCard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tracks_page/components/switchers/TermSwitcher.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/tracks_page/components/switchers/TermSwitcher.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tracks_page/components/cards/card.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/tracks_page/components/cards/card_animation.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/tracks_page/components/switchers/TypeSwitcher.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/tracks_page/components/switchers/TypeSwitcher.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -111,7 +111,8 @@
       <workItem from="1659511501961" duration="18049000" />
       <workItem from="1659865233001" duration="14930000" />
       <workItem from="1660114350762" duration="8800000" />
-      <workItem from="1660201273579" duration="11350000" />
+      <workItem from="1660201273579" duration="13875000" />
+      <workItem from="1660388300821" duration="7784000" />
     </task>
     <servers />
   </component>

@@ -2,7 +2,6 @@ import React from 'react';
 import './ButtonOutline.css'
 import {useFilter} from "../../TracksPage";
 
-
 const TypeSwitcher = () => {
     const {filter, setFilter} = useFilter()
 
