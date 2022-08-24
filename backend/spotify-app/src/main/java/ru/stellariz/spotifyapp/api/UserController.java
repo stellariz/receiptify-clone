@@ -23,15 +23,13 @@ import ru.stellariz.spotifyapp.api.spotifyService.SpotifyService;
 public class UserController {
     private final SpotifyService spotifyService;
 
-    private final UserRepository userRepository;
-
     private final OAuth2AuthorizedClientService oAuth2AuthorizedClientService;
 
     @GetMapping("/user")
     public ResponseEntity<?> getInfo(@AuthenticationPrincipal OAuth2User principal) {
-        // principal hasn't all credentials
+        // principal hasn't got all credentials
         var client = oAuth2AuthorizedClientService.loadAuthorizedClient("spotify", principal.getName());
-        return ResponseEntity.ok("hi");
+        return ResponseEntity.ok(client);
     }
 
     @GetMapping("/get_tracks")

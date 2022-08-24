@@ -9,6 +9,7 @@ import org.springframework.security.oauth2.client.OAuth2AuthorizedClientService;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
+import ru.stellariz.spotifyapp.api.DTO.ArtistsList;
 import ru.stellariz.spotifyapp.api.DTO.TrackList;
 
 import java.net.URI;
@@ -52,12 +53,17 @@ public class SpotifyService {
         });
 
         String jsonResponse = restTemplate.getForObject(uri, String.class);
-        TrackList trackList = null;
         try {
-            trackList = new ObjectMapper().readValue(jsonResponse, TrackList.class);
+            if (type.equals("tracks")) {
+                TrackList trackList = new ObjectMapper().readValue(jsonResponse, TrackList.class);
+                return ResponseEntity.ok(trackList);
+            } else if (type.equals("artists")){
+                ArtistsList artistsList = new ObjectMapper().readValue(jsonResponse, ArtistsList.class);
+                return ResponseEntity.ok(artistsList);
+            }
         } catch (JsonProcessingException e){
             log.error(e.getMessage());
         }
-        return ResponseEntity.ok(trackList);
+        return ResponseEntity.badRequest().build();
     }
 }
