@@ -10,8 +10,6 @@ const FilterContext = createContext(null)
 export const useFilter = () => useContext(FilterContext)
 
 const TracksPage = () => {
-    const [animation, setAnimation] = useState(false)
-
     const [chart, setChart] = useState({
             type: "tracks",
             data: []
@@ -23,8 +21,6 @@ const TracksPage = () => {
     })
 
     useEffect(() => {
-        setAnimation(!animation)
-        console.log(animation)
         APIUtils.getTracksCurrentUser(filter).then(res => {
             setChart({
                 type: filter.type,
