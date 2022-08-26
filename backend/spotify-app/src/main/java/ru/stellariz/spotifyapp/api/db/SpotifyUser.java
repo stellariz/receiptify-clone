@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.security.oauth2.core.OAuth2AccessToken;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -23,4 +24,5 @@ public class SpotifyUser {
     private String displayName;
     private String profileUri;
     private String profilePictureUrl;
+    private OAuth2AccessToken oAuth2AccessToken;
 }

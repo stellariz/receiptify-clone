@@ -8,6 +8,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;
 import org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest;
+import org.springframework.security.oauth2.core.OAuth2AccessToken;
 import org.springframework.security.oauth2.core.OAuth2AuthenticationException;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Service;
@@ -20,7 +21,7 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class CustomOAuth2UserService extends DefaultOAuth2UserService implements UserDetailsService {
+public class CustomOAuth2UserService extends DefaultOAuth2UserService {
     private final UserRepository userRepository;
 
     @Override
@@ -67,23 +68,11 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService implements
     }
 
 
-    @Override
     @Transactional
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        SpotifyUser spotifyUser = userRepository.findSpotifyUserByDisplayName(username)
-                .orElseThrow(() ->
-                        new UsernameNotFoundException("User not found with email : " + username)
-                );
-
-        return UserPrincipal.create(spotifyUser);
-    }
-
-    @Transactional
-    public UserDetails loadUserById(String id) {
+    public UserPrincipal loadUserById(String id) {
         SpotifyUser user = userRepository.findById(id).orElseThrow(
                 () -> new ResourceNotFoundException("User", "id", id)
         );
-
         return UserPrincipal.create(user);
     }
 }

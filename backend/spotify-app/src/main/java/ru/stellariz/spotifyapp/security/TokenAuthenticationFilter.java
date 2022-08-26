@@ -7,10 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
+import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
 import ru.stellariz.spotifyapp.security.oauth2.user.CustomOAuth2UserService;
+import ru.stellariz.spotifyapp.security.oauth2.user.UserPrincipal;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -35,9 +38,8 @@ public class TokenAuthenticationFilter extends OncePerRequestFilter {
             if (StringUtils.hasText(jwt) && tokenProvider.validateToken(jwt)) {
                 String userId = tokenProvider.getUserIdFromToken(jwt);
 
-                UserDetails userDetails = customOAuth2UserService.loadUserById(userId);
-                UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
-                authenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+                UserPrincipal userPrincipal = customOAuth2UserService.loadUserById(userId);
+                OAuth2AuthenticationToken authenticationToken = new OAuth2AuthenticationToken(userPrincipal, userPrincipal.getAuthorities(), "spotify");
                 log.info("Authentication details: {}", authenticationToken.getDetails());
                 SecurityContextHolder.getContext().setAuthentication(authenticationToken);
             }

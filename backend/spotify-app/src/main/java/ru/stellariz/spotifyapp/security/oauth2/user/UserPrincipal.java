@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 
-public class UserPrincipal implements OAuth2User, UserDetails {
+public class UserPrincipal implements OAuth2User {
     private final String id;
     private final String name;
     private final String email;
@@ -34,36 +34,6 @@ public class UserPrincipal implements OAuth2User, UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return authorities;
-    }
-
-    @Override
-    public String getPassword() {
-        return null;
-    }
-
-    @Override
-    public String getUsername() {
-        return name;
-    }
-
-    @Override
-    public boolean isAccountNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return true;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return true;
     }
 
     @Override

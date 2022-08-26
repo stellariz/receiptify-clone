@@ -15,11 +15,7 @@ import ru.stellariz.spotifyapp.api.DTO.TrackList;
 import java.net.URI;
 
 @Slf4j
-@Service
-@RequiredArgsConstructor
-public class SpotifyService {
-
-    private final OAuth2AuthorizedClientService oAuth2AuthorizedClientService;
+public class SpotifyService extends ApiBinding {
 
     private static final String BASE_URL = "https://api.spotify.com/v1";
 
@@ -29,7 +25,11 @@ public class SpotifyService {
 
     private static final int TRACKS_NUMBER = 10;
 
-    public ResponseEntity<?> getTracks(String registrationId, String name, String time, String type) {
+    public SpotifyService(String accessToken){
+        super(accessToken);
+    }
+
+    public ResponseEntity<?> getTracks(String time, String type) {
         URI uri;
         if (type.equals("tracks")) {
             uri = UriComponentsBuilder.fromUriString(BASE_URL + TRACKS)
@@ -42,15 +42,6 @@ public class SpotifyService {
                     .queryParam("time_range", time)
                     .build().toUri();
         }
-
-        String accessToken = oAuth2AuthorizedClientService.loadAuthorizedClient(registrationId, name).getAccessToken().getTokenValue();
-
-        RestTemplate restTemplate = new RestTemplate();
-
-        restTemplate.getInterceptors().add((request, body, execution)-> {
-            request.getHeaders().add("Authorization", "Bearer " + accessToken);
-            return execution.execute(request, body);
-        });
 
         String jsonResponse = restTemplate.getForObject(uri, String.class);
         try {

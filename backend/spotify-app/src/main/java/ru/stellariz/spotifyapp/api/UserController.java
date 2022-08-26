@@ -33,7 +33,7 @@ public class UserController {
     }
 
     @GetMapping("/get_tracks")
-    public ResponseEntity<?> getTracks(@AuthenticationPrincipal OAuth2User principal, @RequestParam String time, @RequestParam String type) {
-        return spotifyService.getTracks("spotify", principal.getName(), time, type);
+    public ResponseEntity<?> getTracks(@RequestParam String time, @RequestParam String type) {
+        return spotifyService.getTracks(time, type);
     }
 }

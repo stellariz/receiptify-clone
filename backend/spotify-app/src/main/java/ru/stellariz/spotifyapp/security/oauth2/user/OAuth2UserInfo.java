@@ -4,12 +4,15 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.oauth2.core.user.OAuth2User;
 
+import java.util.Collection;
 import java.util.Map;
 
-@RequiredArgsConstructor
 @Slf4j
-public class OAuth2UserInfo {
+@RequiredArgsConstructor
+public class OAuth2UserInfo implements OAuth2User {
     private final Map<String, Object> attributes;
     private final ObjectMapper objectMapper = new ObjectMapper();
 
@@ -36,5 +39,15 @@ public class OAuth2UserInfo {
             log.error("Can't convert image to string: {}", e.getMessage());
             return "";
         }
+    }
+
+    @Override
+    public Map<String, Object> getAttributes() {
+        return attributes;
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return null;
     }
 }
