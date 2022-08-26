@@ -29,7 +29,6 @@ export const useAuth = () => {
 
 
 export const RequireAuth = ({children}) => {
-    const auth = useAuth()
     const location = useLocation()
     const navigate = useNavigate()
     useEffect(() => {

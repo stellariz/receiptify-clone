@@ -16,7 +16,7 @@ const OAuth2RedirectHandler = () => {
         const error = searchParams.get("error")
         if (token) {
             auth.signin(token, () => {
-                navigate("/tracks", {replace: true, state: {from: from}})
+                navigate("/", {replace: true, state: {from: from}})
             })
         } else {
             console.log(error)

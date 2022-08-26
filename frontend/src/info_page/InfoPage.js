@@ -11,7 +11,7 @@ const InfoPage = () => {
                 <div className="col-lg-6 mx-auto">
                     <p className="lead mb-4">Здесь должно быть написано что-то умное :) </p>
                     <div className="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                        <button onClick={()=>navigate("/tracks")} type="button" className="btn btn-primary btn-lg px-4 gap-3">Попробуй</button>
+                        <button onClick={()=>navigate("/")} type="button" className="btn btn-primary btn-lg px-4 gap-3">Попробуй</button>
                     </div>
                 </div>
             </div>

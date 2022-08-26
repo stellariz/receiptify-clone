@@ -8,8 +8,11 @@
       <change beforePath="$PROJECT_DIR$/../backend/spotify-app/src/main/java/ru/stellariz/spotifyapp/api/DTO/Artist.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/spotify-app/src/main/java/ru/stellariz/spotifyapp/api/DTO/Artist.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../backend/spotify-app/src/main/java/ru/stellariz/spotifyapp/api/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/spotify-app/src/main/java/ru/stellariz/spotifyapp/api/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../backend/spotify-app/src/main/java/ru/stellariz/spotifyapp/api/spotifyService/SpotifyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/spotify-app/src/main/java/ru/stellariz/spotifyapp/api/spotifyService/SpotifyService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/spotify-app/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/spotify-app/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/auth/AuthUtils.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/auth/AuthUtils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/info_page/InfoPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/info_page/InfoPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/oauth2/OAuth2RedirectHandler.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/oauth2/OAuth2RedirectHandler.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/tracks_page/TracksPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/tracks_page/TracksPage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/tracks_page/components/cards/card_animation.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/tracks_page/components/cards/card_animation.css" afterDir="false" />
     </list>

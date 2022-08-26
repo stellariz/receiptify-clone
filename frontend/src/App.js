@@ -12,7 +12,7 @@ function App() {
             <BrowserRouter>
                 <AuthProvider>
                     <Routes>
-                        <Route path="/tracks" element={
+                        <Route path="/" element={
                             <RequireAuth>
                                 <TracksPage/>
                             </RequireAuth>

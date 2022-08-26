@@ -1,0 +1,77 @@
+Index: src/App.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import {BrowserRouter, Route, Routes} from \"react-router-dom\";\r\nimport OAuth2RedirectHandler from \"./oauth2/OAuth2RedirectHandler\";\r\nimport LoginPage from \"./login_page/LoginPage\";\r\nimport TracksPage from \"./tracks_page/TracksPage\";\r\nimport {AuthProvider, RequireAuth} from \"./auth/AuthUtils\"\r\nimport InfoPage from \"./info_page/InfoPage\";\r\n\r\n\r\nfunction App() {\r\n    return (\r\n        <div>\r\n            <BrowserRouter>\r\n                <AuthProvider>\r\n                    <Routes>\r\n                        <Route path=\"/tracks\" element={\r\n                            <RequireAuth>\r\n                                <TracksPage/>\r\n                            </RequireAuth>\r\n                        }/>\r\n                        <Route path=\"/login\" element={<LoginPage/>}/>\r\n                        <Route path=\"/oauth2/redirect\"\r\n                               element={<OAuth2RedirectHandler/>}/>\r\n                        <Route path=\"/info\" element={<InfoPage/>}/>\r\n                    </Routes>\r\n                </AuthProvider>\r\n            </BrowserRouter>\r\n        </div>\r\n    );\r\n}\r\n\r\nexport default App;\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/App.js b/src/App.js
+--- a/src/App.js	(revision 5cdf3903e4b9a56baf6d2663b0a39aba3a5c2e9b)
++++ b/src/App.js	(date 1661518302625)
+@@ -12,7 +12,7 @@
+             <BrowserRouter>
+                 <AuthProvider>
+                     <Routes>
+-                        <Route path="/tracks" element={
++                        <Route path={["/tracks", "/"]} element={
+                             <RequireAuth>
+                                 <TracksPage/>
+                             </RequireAuth>
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"7df7ad22-c8da-4c1d-8612-0a6959f89e57\" name=\"Changes\" comment=\"\">\r\n      <change beforePath=\"$PROJECT_DIR$/../backend/spotify-app/src/main/java/ru/stellariz/spotifyapp/api/DTO/Artist.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/../backend/spotify-app/src/main/java/ru/stellariz/spotifyapp/api/DTO/Artist.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/../backend/spotify-app/src/main/java/ru/stellariz/spotifyapp/api/UserController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/../backend/spotify-app/src/main/java/ru/stellariz/spotifyapp/api/UserController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/../backend/spotify-app/src/main/java/ru/stellariz/spotifyapp/api/spotifyService/SpotifyService.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/../backend/spotify-app/src/main/java/ru/stellariz/spotifyapp/api/spotifyService/SpotifyService.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/../backend/spotify-app/src/main/resources/application.yml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/../backend/spotify-app/src/main/resources/application.yml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/tracks_page/TracksPage.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/tracks_page/TracksPage.js\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/tracks_page/components/cards/card_animation.css\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/tracks_page/components/cards/card_animation.css\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"CSS File\" />\r\n        <option value=\"JavaScript File\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$/..\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2CTRhttVfUhktpuEN962vOvqMFH\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\r\n    <ConfirmationsSetting value=\"1\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;C:/Users/roxxa/clone_receiptify/frontend/public&quot;,\r\n    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;nodejs_interpreter_path&quot;: &quot;C:/Program Files/nodejs/node&quot;,\r\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\r\n    &quot;settings.editor.selected.configurable&quot;: &quot;settings.nodejs&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\roxxa\\clone_receiptify\\frontend\\public\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\roxxa\\clone_receiptify\\frontend\\src\\tracks_page\\components\\cards\" />\r\n      <recent name=\"C:\\Users\\roxxa\\clone_receiptify\\frontend\\src\\tracks_page\" />\r\n      <recent name=\"C:\\Users\\roxxa\\clone_receiptify\\frontend\\src\\tracks_page\\components\" />\r\n      <recent name=\"C:\\Users\\roxxa\\clone_receiptify\\frontend\\src\" />\r\n      <recent name=\"C:\\Users\\roxxa\\clone_receiptify\\frontend\\src\\home_page\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunAnythingCache\">\r\n    <option name=\"myCommands\">\r\n      <command value=\"npx create-react-app ,\" />\r\n      <command value=\"npx create-react-app .\" />\r\n    </option>\r\n  </component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"start\" type=\"js.build_tools.npm\" nameIsGenerated=\"true\">\r\n      <package-json value=\"$PROJECT_DIR$/package.json\" />\r\n      <command value=\"start\" />\r\n      <node-interpreter value=\"project\" />\r\n      <envs />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"7df7ad22-c8da-4c1d-8612-0a6959f89e57\" name=\"Changes\" comment=\"\" />\r\n      <created>1658824710794</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1658824710794</updated>\r\n      <workItem from=\"1658824712183\" duration=\"977000\" />\r\n      <workItem from=\"1658826086466\" duration=\"298000\" />\r\n      <workItem from=\"1658826422266\" duration=\"9564000\" />\r\n      <workItem from=\"1658905481858\" duration=\"1036000\" />\r\n      <workItem from=\"1658906615533\" duration=\"16796000\" />\r\n      <workItem from=\"1658985096309\" duration=\"4636000\" />\r\n      <workItem from=\"1659068921969\" duration=\"23119000\" />\r\n      <workItem from=\"1659101749037\" duration=\"939000\" />\r\n      <workItem from=\"1659157340204\" duration=\"8036000\" />\r\n      <workItem from=\"1659246065798\" duration=\"2979000\" />\r\n      <workItem from=\"1659370312756\" duration=\"2154000\" />\r\n      <workItem from=\"1659420281603\" duration=\"16430000\" />\r\n      <workItem from=\"1659511501961\" duration=\"18049000\" />\r\n      <workItem from=\"1659865233001\" duration=\"14930000\" />\r\n      <workItem from=\"1660114350762\" duration=\"8800000\" />\r\n      <workItem from=\"1660201273579\" duration=\"13875000\" />\r\n      <workItem from=\"1660388300821\" duration=\"9201000\" />\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"XSLT-Support.FileAssociations.UIState\">\r\n    <expand />\r\n    <select />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 5cdf3903e4b9a56baf6d2663b0a39aba3a5c2e9b)
++++ b/.idea/workspace.xml	(date 1661518477261)
+@@ -5,13 +5,9 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="7df7ad22-c8da-4c1d-8612-0a6959f89e57" name="Changes" comment="">
+-      <change beforePath="$PROJECT_DIR$/../backend/spotify-app/src/main/java/ru/stellariz/spotifyapp/api/DTO/Artist.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/spotify-app/src/main/java/ru/stellariz/spotifyapp/api/DTO/Artist.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/../backend/spotify-app/src/main/java/ru/stellariz/spotifyapp/api/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/spotify-app/src/main/java/ru/stellariz/spotifyapp/api/UserController.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/../backend/spotify-app/src/main/java/ru/stellariz/spotifyapp/api/spotifyService/SpotifyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/spotify-app/src/main/java/ru/stellariz/spotifyapp/api/spotifyService/SpotifyService.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/../backend/spotify-app/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/spotify-app/src/main/resources/application.yml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/tracks_page/TracksPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/tracks_page/TracksPage.js" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/tracks_page/components/cards/card_animation.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/tracks_page/components/cards/card_animation.css" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/auth/AuthUtils.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/auth/AuthUtils.js" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -109,6 +105,7 @@
+       <workItem from="1660114350762" duration="8800000" />
+       <workItem from="1660201273579" duration="13875000" />
+       <workItem from="1660388300821" duration="9201000" />
++      <workItem from="1661517856570" duration="615000" />
+     </task>
+     <servers />
+   </component>
+Index: src/auth/AuthUtils.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import {createContext, useContext, useEffect} from \"react\";\r\nimport {useLocation, useNavigate} from \"react-router-dom\";\r\nimport {ACCESS_TOKEN} from \"../constants\";\r\n\r\n\r\nconst AuthContext = createContext(null)\r\n\r\nexport const AuthProvider = ({children}) => {\r\n\r\n    const signin = (token, f) => {\r\n        localStorage.setItem(ACCESS_TOKEN, token)\r\n        f()\r\n    }\r\n\r\n    const signout = (f) => {\r\n        console.log(\"signed_out\")\r\n        localStorage.removeItem(ACCESS_TOKEN);\r\n        f()\r\n    }\r\n\r\n    const value = {signin, signout}\r\n\r\n    return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>\r\n}\r\n\r\nexport const useAuth = () => {\r\n    return useContext(AuthContext)\r\n}\r\n\r\n\r\nexport const RequireAuth = ({children}) => {\r\n    const auth = useAuth()\r\n    const location = useLocation()\r\n    const navigate = useNavigate()\r\n    useEffect(() => {\r\n        if (localStorage.getItem(ACCESS_TOKEN) === null) {\r\n            return navigate(\"/login\", {replace: true, state: {from: location}})\r\n        }\r\n    }, [navigate])\r\n    return children\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/auth/AuthUtils.js b/src/auth/AuthUtils.js
+--- a/src/auth/AuthUtils.js	(revision 5cdf3903e4b9a56baf6d2663b0a39aba3a5c2e9b)
++++ b/src/auth/AuthUtils.js	(date 1661518080027)
+@@ -23,13 +23,8 @@
+     return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
+ }
+ 
+-export const useAuth = () => {
+-    return useContext(AuthContext)
+-}
+-
+ 
+ export const RequireAuth = ({children}) => {
+-    const auth = useAuth()
+     const location = useLocation()
+     const navigate = useNavigate()
+     useEffect(() => {
