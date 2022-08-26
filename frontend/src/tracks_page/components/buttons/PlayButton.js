@@ -1,22 +1,22 @@
 import React, {useEffect, useState} from 'react';
 
 const useAudio = (url) => {
-    const [audio, setAudio] = useState(new Audio(url));
+    const [audio] = useState(new Audio(url));
     const [playing, setPlaying] = useState(false);
 
     const toggle = () => setPlaying(!playing);
 
     useEffect(() => {
             playing ? audio.play() : audio.pause();
-        }, [playing]);
+            }, [playing]);
 
-    useEffect(() => {
-        setAudio(new Audio(url))
+
+    useEffect(()=> {
         audio.addEventListener('ended', () => setPlaying(false));
         return () => {
             audio.removeEventListener('ended', () => setPlaying(false));
         };
-    }, [url]);
+    }, [])
 
     return [playing, toggle];
 };
@@ -27,19 +27,19 @@ const PlayButton = ({preview_url}) => {
     return (
         <div>
             {!preview_url ?
-                <a className="btn btn-secondary">
+                <button className="btn btn-secondary">
                     <i className="bi bi-play-circle-fill"></i> Playing unavailable :(
-                </a>
+                </button>
                 :
                 <div>
                     {playing ?
-                        <a onClick={toggle} className="btn btn-danger">
+                        <button onClick={toggle} className="btn btn-danger">
                             <i className="bi bi-pause-circle-fill"></i> Pause
-                        </a>
+                        </button>
                         :
-                        <a onClick={toggle} className="btn btn-success">
+                        <button onClick={toggle} className="btn btn-success">
                             <i className="bi bi-play-circle-fill"></i> Play
-                        </a>
+                        </button>
                     }
                 </div>}
         </div>
