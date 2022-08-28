@@ -14,7 +14,7 @@ public class SpotifyConfig {
 
     @Bean
     @RequestScope
-    public SpotifyService spotifyService(OAuth2AuthorizedClientService clientService) {
+    public SpotifyServiceImpl spotifyService(OAuth2AuthorizedClientService clientService) {
         Authentication authentication =
                 SecurityContextHolder.getContext().getAuthentication();
         String accessToken = null;
@@ -30,6 +30,6 @@ public class SpotifyConfig {
                 accessToken = client.getAccessToken().getTokenValue();
             }
         }
-        return new SpotifyService(accessToken);
+        return new SpotifyServiceImpl(accessToken);
     }
 }

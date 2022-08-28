@@ -21,12 +21,21 @@ const TracksPage = () => {
     })
 
     useEffect(() => {
+        filter.type === 'tracks' ?
         APIUtils.getTracksCurrentUser(filter).then(res => {
             setChart({
                 type: filter.type,
                 data: res.data.items
             })
-        }).catch(err => console.log(err));
+        }).catch(err => console.log(err))
+        :
+        APIUtils.getArtistsCurrentUser(filter).then(res=>{
+            console.log(res)
+            setChart({
+                type: filter.type,
+                data: res.data.items
+            })
+        })
     }, [filter])
 
     return (
